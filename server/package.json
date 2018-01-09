@@ -1,0 +1,15 @@
+{
+  "dependencies": {
+    "apng-canvas-parser": "git://github.com/59naga/apng-canvas-parser.git#727a15dcea6a070569e3b331966f4e3fd92d3a6c",
+    "ba64": "^3.0.9",
+    "body-parser": "^1.18.2",
+    "cors": "^2.8.4",
+    "express": "^4.13.3",
+    "imageinfo": "^1.0.4",
+    "jpeg-asm": "^1.0.0",
+    "jpeg-js": "^0.1.1",
+    "jsonfile": "^4.0.0",
+    "randomstring": "^1.1.5",
+    "restler": "^3.4.0"
+  }
+}

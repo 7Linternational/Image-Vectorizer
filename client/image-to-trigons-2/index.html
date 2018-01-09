@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>image to trigons 2</title>
+
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <link rel="stylesheet" href="css/milligram.min.css">
+    <link rel="stylesheet" href="css/style.css">
+
+
+</head>
+
+<body>
+    <div class="bg"></div>
+    <!--<input name="myFile" type="file" id="imageInput">-->
+    <label for="imageURL" id="imageURLLabel">Enter Image URL or Pick a local image:
+        <input name="myURL" type="text" id="imageURL">
+    </label>
+
+    <label for="quality" class="qualityLabel">
+      Enter quality value (0 - low, 5000 - Extremely high)
+      <input id="quality" type="number" placeholder="500" value="500" min="10" max="5000" />
+    </label>
+    <div class="mainContainer">
+        <div class="submitBtn btn button">Vectorize Image</div>
+        <div class="image-upload">
+            <label for="file-input">
+          <div class="pickBtn btn button">Pick Local Image</div>
+      </label>
+
+            <input id="file-input" type="file" />
+        </div>
+    </div>
+    <textarea id="base64Output"></textarea>
+    <span class="copyBtn button" data-clipboard-action="copy" data-clipboard-target="#base64Output">Copy!</span>
+    <span class="clearBtn copyBtn button" onclick="location.reload();">Clear!</span>
+    <div class="loader hidden">Loading...</div>
+
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.4/lodash.min.js'></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
+    <script src='js/phaser.js'></script>
+    <script src="js/clipboard.min.js"></script>
+    <script src="js/index.js"></script>
+
+</body>
+
+</html>
