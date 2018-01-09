@@ -1,0 +1,187 @@
+    body {
+        padding: 0;
+        margin: 0;
+    }
+    
+    .bg {
+        /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#febf01+0,febf01+100;Yellow+Flat */
+        background-color: #f1f1f1;
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        margin-top: -40px;
+    }
+    
+    canvas {
+        width: 100%;
+        height: 100%;
+    }
+    
+    .mainContainer {
+        display: block;
+        margin: 0 auto;
+        position: relative;
+        height: 50px;
+        width: 357px;
+    }
+    
+    .btn {
+        height: 40px;
+        text-align: center;
+        cursor: pointer;
+        float: left;
+        margin-top: 10px;
+        margin-bottom: 20px;
+        margin-right: 40px;
+    }
+    
+    .image-upload {
+        width: auto;
+        position: relative;
+        float: left;
+        margin-left: 80px;
+    }
+    
+    .image-upload>input {
+        display: none;
+    }
+    
+    .image-upload>label {
+        margin: 0 auto;
+        display: block;
+        position: w;
+        width: auto;
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+    
+    .image-upload img {
+        width: 80px;
+        cursor: pointer;
+    }
+    
+    .qualityLabel {
+        margin: 0 auto;
+        display: block;
+        position: relative;
+        width: 400px;
+        text-align: center;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+    
+    #quality {
+        margin-top: 10px;
+    }
+    
+    #trigonImg {
+        width: 40%;
+        height: 40%;
+        margin: 0 auto;
+        margin-top: 40px;
+        display: block;
+        position: relative;
+        padding-bottom: 20px;
+    }
+    
+    #imageURLLabel {
+        margin: 0 auto;
+        display: block;
+        position: relative;
+        width: 500px;
+        margin-top: 40px;
+    }
+    
+    #imageURL {
+        margin-top: 50px;
+        margin: 0 auto;
+        display: block;
+        position: relative;
+        width: 500px;
+        padding: 5px;
+        margin-top: 5px;
+    }
+    
+    #base64Output {
+        resize: none;
+        width: 400px;
+        height: 100px;
+        padding: 5px;
+        border: 2px solid #adadad;
+        display: block;
+        margin: 0 auto;
+        margin-top: 20px;
+        position: relative;
+    }
+    
+    .copyBtn {
+        margin: 0 auto;
+        display: block;
+        text-align: center;
+        margin-top: 10px;
+        width: 100px;
+        height: 40px;
+        cursor: pointer;
+        position: relative;
+        display: inline-block;
+        left: 50%;
+    }
+    
+    .clearBtn {
+        background-color: crimson;
+    }
+    
+    .loader,
+    .loader:after {
+        border-radius: 50%;
+        width: 10em;
+        height: 10em;
+    }
+    
+    .loader {
+        margin: 60px auto;
+        font-size: 10px;
+        position: relative;
+        text-indent: -9999em;
+        border-top: 1.1em solid rgba(255, 255, 255, 0.2);
+        border-right: 1.1em solid rgba(255, 255, 255, 0.2);
+        border-bottom: 1.1em solid rgba(255, 255, 255, 0.2);
+        border-left: 1.1em solid #ffffff;
+        -webkit-transform: translateZ(0);
+        -ms-transform: translateZ(0);
+        transform: translateZ(0);
+        -webkit-animation: load8 1.1s infinite linear;
+        animation: load8 1.1s infinite linear;
+        position: absolute;
+        left: 50%;
+        transform: translate(-50%);
+        margin-left: -5em;
+        margin-right: 0px;
+    }
+    
+    .hidden {
+        display: none;
+    }
+    
+    @-webkit-keyframes load8 {
+        0% {
+            -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+        }
+        100% {
+            -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+        }
+    }
+    
+    @keyframes load8 {
+        0% {
+            -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+        }
+        100% {
+            -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+        }
+    }
