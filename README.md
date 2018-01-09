@@ -7,6 +7,8 @@ Either enter a URL of an image, or pick an image from the local system to vector
 
 The result is a `base64` string, and an Image of the vectorized original image (use right+click and save as... to download locally)
 
+>Note: Use clear before using the tool again!
+
 
 ## Server
 
