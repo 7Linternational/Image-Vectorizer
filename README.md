@@ -1,6 +1,8 @@
 # Image-Vectorizer
 Vectorize images (JPEG, PNG) with variable quality
 
+Temp URL: http://env-3497474.fr-1.paas.massivegrid.net/polyserver/client/
+
 ## Client
 
 Either enter a URL of an image, or pick an image from the local system to vectorize.
