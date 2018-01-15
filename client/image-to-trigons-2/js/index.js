@@ -24,6 +24,11 @@ var Trigons = {
         }
 
         $("#trigonImg").css("display", "none");
+        $(".errorContainer").addClass("hidden");
+        //
+        $(".submitBtn").attr("disabled", "disabled").off('click');
+        $(".pickBtn").attr("disabled", "disabled").off('click');
+        //
         $.ajax({
             crossOrigin: false,
             dataType: "json",
@@ -36,6 +41,11 @@ var Trigons = {
                 //window.console.log(_dat);
                 Trigons.init(_dat);
                 $(".loader").removeClass("hidden").addClass("hidden");
+            },
+            error: function(xhr, ajaxOptions, thrownError) {
+                window.console.log("error", xhr, ajaxOptions, thrownError);
+                $(".errorContainer").removeClass("hidden");
+                $(".loader").addClass("hidden");
             }
         });
 

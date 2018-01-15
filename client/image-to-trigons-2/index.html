@@ -33,6 +33,10 @@
             <input id="file-input" type="file" />
         </div>
     </div>
+
+    <blockquote class="errorContainer hidden">
+        <div class="error">Image too large or invalid format</div>
+    </blockquote>
     <textarea id="base64Output"></textarea>
     <span class="copyBtn button" data-clipboard-action="copy" data-clipboard-target="#base64Output">Copy!</span>
     <span class="clearBtn copyBtn button" onclick="location.reload();">Clear!</span>
