@@ -10,6 +10,7 @@
     "jpeg-js": "^0.1.1",
     "jsonfile": "^4.0.0",
     "randomstring": "^1.1.5",
-    "restler": "^3.4.0"
+    "restler": "^3.4.0",
+    "unsplash-js": "^4.8.0"
   }
 }

@@ -1,7 +1,7 @@
 $(document).ready(function() {
 
     $("#file-input").on('change', Trigons.selectImages);
-    $("#imageURL").val("https://images.unsplash.com/photo-1473042904451-00171c69419d?auto=format&fit=crop&w=1975&q=80");
+    $("#imageURL").val("https://source.unsplash.com/all/2048x1200/daily");
     $(".submitBtn").on("click", Trigons.makeVector);
     var clipboard = new Clipboard('.copyBtn');
 
@@ -12,7 +12,15 @@ var Trigons = {
     controls: {},
     imgCache: [],
     makeVector: function(isLocal) {
-        var url = $("#imageURL").val();
+        var photo = new UnsplashPhoto();
+
+        var randP = photo.all()
+            .width(2048)
+            .height(1200)
+            .randomize("daily")
+            .fetch();
+        window.console.log(randP);
+        var url = randP; //$("#imageURL").val();
         if (isLocal !== true) {
             isLocal = false;
         }
@@ -172,7 +180,7 @@ var Trigons = {
             _.defer(function(text) {
                 Trigons.toSVG(data.tris, data.width, data.height, function(dataUrl) {
                     var init = '<?xml version="1.0" encoding="utf-8"?><!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">';
-                    $("#base64Output").val(init + dataUrl);
+                    $("#base64Output").val("").val(init + dataUrl);
                 });
             }, "made svg");
             /*_.defer(function(text) {
