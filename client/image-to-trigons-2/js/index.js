@@ -13,7 +13,10 @@ var Trigons = {
     imgCache: [],
     makeVector: function(isLocal) {
         var url = $("#imageURL").val();
-        var _isLocal = isLocal || false;
+        if (isLocal !== true) {
+            isLocal = false;
+        }
+        var _isLocal = isLocal;
         if (isLocal === true) {
             url = Trigons.imgCache[0];
         }
@@ -166,10 +169,19 @@ var Trigons = {
             $(image).addClass("trigonImg").attr("id", "trigonImg");
             $("#trigonImg").remove();
             var elem = $("body").append(image);
-            Trigons.toDataURL(document.getElementById('trigonImg'), function(dataUrl) {
-                $("#base64Output").val(dataUrl);
-                //$("#imageURL").val("");
-            }, "image/jpeg");
+            _.defer(function(text) {
+                Trigons.toSVG(data.tris, data.width, data.height, function(dataUrl) {
+                    var init = '<?xml version="1.0" encoding="utf-8"?><!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">';
+                    $("#base64Output").val(init + dataUrl);
+                });
+            }, "made svg");
+            /*_.defer(function(text) {
+                Trigons.toDataURL(document.getElementById('trigonImg'), function(dataUrl) {
+                    $("#base64Output").val(dataUrl);
+                    //$("#imageURL").val("");
+                }, "image/jpeg");
+            }, 'deferred');
+            */
         }, 'image/jpeg', 1.0);
         //$("#finalImg").attr("src", jpegUrl);
 
@@ -207,6 +219,21 @@ var Trigons = {
             }
         })(file, index);
         reader.readAsDataURL(file);
+    },
+    toSVG: function(tris, width, height, callback, outputFormat) {
+        $("#mainSVG").attr("width", width).attr("height", height);
+        _.forEach(tris, function(o) {
+            var poly = "<polygon points='" + o.x0 + "," + o.y0 + " " + o.x1 + "," + o.y1 + " " + o.x2 + "," + o.y2 + "' fill=" + "rgb(" + o.r + "," + o.g + "," + o.b + ")" + " stroke-width='0' stroke-linecap='butt'/>";
+            $("#mainSVG").append(poly);
+        });
+
+        $("#svgContainer").html($("#svgContainer").html().trim());
+        $("#mainSVG").attr({
+            cx: 0,
+            cy: 0
+        });
+
+        callback($("#svgContainer").html());
     },
     toDataURL: function(src, callback, outputFormat) {
         var img = src;
