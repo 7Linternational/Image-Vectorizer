@@ -4,13 +4,15 @@ $(document).ready(function() {
     $("#imageURL").val("https://source.unsplash.com/all/2048x1200/daily");
     $(".submitBtn").on("click", Trigons.makeVector);
     var clipboard = new Clipboard('.copyBtn');
-
+    $("body").on("click", "#trigonImg", Trigons.swapImages);
 
 });
 
 var Trigons = {
     controls: {},
     imgCache: [],
+    lastImg: "",
+    lastTrigon: "",
     makeVector: function(isLocal) {
         var photo = new UnsplashPhoto();
 
@@ -32,6 +34,12 @@ var Trigons = {
         // validation //
         if (url === "") {
             return false;
+        }
+
+        if (url.indexOf("http") === -1) {
+            Trigons.lastImg = "data:image/jpeg;base64," + url;
+        } else {
+            Trigons.lastImg = url;
         }
 
         $("#trigonImg").css("display", "none");
@@ -174,9 +182,12 @@ var Trigons = {
         image.height = data.height;
         Trigons.game.renderer.snapshot(function(image) {
             $("canvas").css("display", "none");
-            $(image).addClass("trigonImg").attr("id", "trigonImg");
+            Trigons.lastTrigon = image.src;
+            $(image).addClass("trigonImg").attr("id", "trigonImg").data("url", image.src);
             $("#trigonImg").remove();
-            var elem = $("body").append(image);
+            var elem = $("#trigonImgContainer").append(image);
+            $("#trigonImgContainer").removeClass("hidden");
+
             _.defer(function(text) {
                 Trigons.toSVG(data.tris, data.width, data.height, function(dataUrl) {
                     var init = '<?xml version="1.0" encoding="utf-8"?><!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">';
@@ -194,6 +205,16 @@ var Trigons = {
         //$("#finalImg").attr("src", jpegUrl);
 
 
+    },
+    swapImages: function(e) {
+        var img = $(e.currentTarget);
+        if (img.hasClass("original") === true) {
+            img.attr("src", Trigons.lastTrigon);
+            img.removeClass("original");
+        } else {
+            img.attr("src", Trigons.lastImg);
+            img.removeClass("original").addClass("original");
+        }
     },
     rgbToNum: function(r, g, b) {
         return "0x" + ((1 << 24) + (r << 16) + (g << 8) + b).toString(16).slice(1);

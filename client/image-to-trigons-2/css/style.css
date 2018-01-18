@@ -4,6 +4,13 @@
         overflow-x: hidden;
     }
     
+    h4 {
+        position: relative;
+        width: 600px;
+        margin: 0 auto;
+        margin-top: 20px;
+    }
+    
     .bg {
         /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#febf01+0,febf01+100;Yellow+Flat */
         background-color: #f1f1f1;
@@ -85,11 +92,17 @@
         margin-top: 10px;
     }
     
+    #trigonImgContainer {
+        position: relative;
+        margin: 0 auto;
+        text-align: center;
+        margin-top: 40px;
+    }
+    
     #trigonImg {
         width: 40%;
         height: 40%;
         margin: 0 auto;
-        margin-top: 40px;
         display: block;
         position: relative;
         padding-bottom: 20px;

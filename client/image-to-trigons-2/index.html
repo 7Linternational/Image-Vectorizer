@@ -21,6 +21,7 @@
 
 <body>
     <div class="bg"></div>
+    <h4>A WebApp that converts an image from a url or local into a series of vector triangles using delaunay triangulation.<br>Exports as SVG or PNG</h4>
     <!--<input name="myFile" type="file" id="imageInput">-->
     <label for="imageURL" id="imageURLLabel">Enter Image URL or Pick a local image:
         <input name="myURL" type="text" id="imageURL">
@@ -50,6 +51,8 @@
     </div>
     <span class="copyBtn button" data-clipboard-action="copy" data-clipboard-target="#base64Output">Copy!</span>
     <span class="clearBtn copyBtn button" onclick="location.reload();">Clear!</span>
+
+    <label id="trigonImgContainer" class="hidden" for="trigonImg">Click to swap original/vectorized</label>
     <div class="loader hidden">Loading...</div>
 
     <script src='https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.4/lodash.min.js'></script>
@@ -58,6 +61,20 @@
     <script src="js/clipboard.min.js"></script>
     <script src="js/unsplash-source.min.js"></script>
     <script src="js/index.js"></script>
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-112700311-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+
+        gtag('config', 'UA-112700311-1');
+    </script>
+
 
 </body>
 
