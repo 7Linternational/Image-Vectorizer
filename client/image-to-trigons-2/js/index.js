@@ -52,8 +52,7 @@ var Trigons = {
             crossOrigin: false,
             dataType: "json",
             type: 'POST',
-            url: "http://services.7linternational.com:3000/convert", //"http://localhost:3000/convert", //"http://185.168.193.194:3000/convert",
-            //"https://s3-us-west-2.amazonaws.com/s.cdpn.io/1581715/sample_copy.json",
+            url: config.url, //"http://localhost:3000/convert",
             data: { url: url, cutoff: Number($("#quality").val()), local: _isLocal },
             success: function(data) {
                 var _dat = data;
